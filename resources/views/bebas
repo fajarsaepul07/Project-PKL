@@ -1,0 +1,1360 @@
+/* Responsive */
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #1e3c72;
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parkivia - Solusi Parkir Modern</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #ffd700;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(30, 60, 114, 0.8), rgba(42, 82, 152, 0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f0f0f0" width="1200" height="600"/><rect fill="%23e0e0e0" x="100" y="150" width="200" height="100"/><rect fill="%23d0d0d0" x="350" y="150" width="200" height="100"/><rect fill="%23e0e0e0" x="600" y="150" width="200" height="100"/><rect fill="%23d0d0d0" x="850" y="150" width="200" height="100"/><text x="600" y="320" text-anchor="middle" font-size="24" fill="%23666">PARKIR MODERN</text></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1e3c72;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #ff6b35;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1e3c72;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .feature-icon {
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .pricing-card.featured {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid #ffd700;
+            transform: scale(1.05);
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ffd700;
+            margin: 1rem 0;
+        }
+
+        .price-period {
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #1e3c72;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ff6b35;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .contact-item-icon {
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1e3c72;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #ffd700;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1rem;
+            text-align: center;
+            color: #ccc;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Modal Styles */
+        .modal {
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .availability-card {
+            transition: all 0.3s ease;
+        }
+
+        .availability-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        /* Booking Section */
+        .booking {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .quick-book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .quick-book-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .quick-book-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .quick-book-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+
+        /* Responsive Modal */
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 95%;
+                margin: 2% auto;
+            }
+            
+            .modal-body {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-car"></i> Parkivia
+            </div>
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#services">Layanan</a></li>
+                    <li><a href="#features">Fitur</a></li>
+                    <li><a href="#pricing">Harga</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+                <button class="mobile-toggle" id="mobileToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Solusi Parkir Modern</h1>
+            <p>Sistem parkir otomatis yang aman, efisien, dan terpercaya untuk semua kebutuhan kendaraan Anda. Nikmati kemudahan parkir dengan teknologi terdepan.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+                <a href="#booking" class="cta-button">
+                    <i class="fas fa-calendar-plus"></i> Reservasi Parkir
+                </a>
+                <a href="#availability" class="cta-button" style="background: linear-gradient(45deg, #28a745, #20c997);">
+                    <i class="fas fa-search"></i> Cek Ketersediaan
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parking Availability Section -->
+    <section class="availability" id="availability" style="padding: 80px 0; background: white;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ketersediaan Parkir Real-Time</h2>
+                <p>Lihat ketersediaan tempat parkir secara langsung dan pilih lokasi yang tepat</p>
+            </div>
+            
+            <!-- Location Selector -->
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <select id="locationSelect" style="padding: 12px 20px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; margin-right: 1rem; min-width: 200px;">
+                    <option value="sudirman">Parkivia Sudirman</option>
+                    <option value="thamrin">Parkivia Thamrin</option>
+                    <option value="kemang">Parkivia Kemang</option>
+                    <option value="senayan">Parkivia Senayan</option>
+                </select>
+                <button id="refreshBtn" class="cta-button" style="padding: 12px 24px;">
+                    <i class="fas fa-sync-alt"></i> Refresh
+                </button>
+            </div>
+
+            <!-- Availability Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <!-- Car Parking -->
+                <div class="availability-card" style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center;">
+                    <div style="font-size: 3rem; color: #1e3c72; margin-bottom: 1rem;">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Parkir Mobil</h3>
+                    <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
+                        <span>Tersedia:</span>
+                        <span id="carAvailable" style="color: #28a745; font-weight: bold;">45/100</span>
+                    </div>
+                    <div style="background: #f0f0f0; height: 10px; border-radius: 5px; overflow: hidden; margin: 1rem 0;">
+                        <div id="carProgress" style="background: linear-gradient(45deg, #28a745, #20c997); height: 100%; width: 45%; transition: width 0.3s;"></div>
+                    </div>
+                    <button class="cta-button" onclick="openBookingModal('car')" style="width: 100%; margin-top: 1rem;">
+                        <i class="fas fa-plus"></i> Reservasi Sekarang
+                    </button>
+                </div>
+
+                <!-- Motorcycle Parking -->
+                <div class="availability-card" style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center;">
+                    <div style="font-size: 3rem; color: #1e3c72; margin-bottom: 1rem;">
+                        <i class="fas fa-motorcycle"></i>
+                    </div>
+                    <h3>Parkir Motor</h3>
+                    <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
+                        <span>Tersedia:</span>
+                        <span id="motorAvailable" style="color: #28a745; font-weight: bold;">78/150</span>
+                    </div>
+                    <div style="background: #f0f0f0; height: 10px; border-radius: 5px; overflow: hidden; margin: 1rem 0;">
+                        <div id="motorProgress" style="background: linear-gradient(45deg, #28a745, #20c997); height: 100%; width: 52%; transition: width 0.3s;"></div>
+                    </div>
+                    <button class="cta-button" onclick="openBookingModal('motorcycle')" style="width: 100%; margin-top: 1rem;">
+                        <i class="fas fa-plus"></i> Reservasi Sekarang
+                    </button>
+                </div>
+
+                <!-- VIP Parking -->
+                <div class="availability-card" style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center;">
+                    <div style="font-size: 3rem; color: #ffd700; margin-bottom: 1rem;">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>Parkir VIP</h3>
+                    <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
+                        <span>Tersedia:</span>
+                        <span id="vipAvailable" style="color: #28a745; font-weight: bold;">8/20</span>
+                    </div>
+                    <div style="background: #f0f0f0; height: 10px; border-radius: 5px; overflow: hidden; margin: 1rem 0;">
+                        <div id="vipProgress" style="background: linear-gradient(45deg, #ffd700, #ff6b35); height: 100%; width: 40%; transition: width 0.3s;"></div>
+                    </div>
+                    <button class="cta-button" onclick="openBookingModal('vip')" style="width: 100%; margin-top: 1rem; background: linear-gradient(45deg, #ffd700, #ff6b35);">
+                        <i class="fas fa-star"></i> Reservasi VIP
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal" style="display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
+        <div class="modal-content" style="background-color: white; margin: 5% auto; padding: 0; width: 90%; max-width: 600px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); animation: slideIn 0.3s ease;">
+            <div class="modal-header" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 1.5rem; border-radius: 15px 15px 0 0; position: relative;">
+                <h2 style="margin: 0; display: flex; align-items: center; gap: 0.5rem;">
+                    <i id="modalIcon" class="fas fa-car"></i>
+                    <span id="modalTitle">Reservasi Parkir Mobil</span>
+                </h2>
+                <button class="close" onclick="closeBookingModal()" style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer;">&times;</button>
+            </div>
+            <div class="modal-body" style="padding: 2rem;">
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label for="customerName">Nama Lengkap *</label>
+                        <input type="text" id="customerName" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem;">
+                    </div>
+                    <div class="form-group">
+                        <label for="customerPhone">Nomor Telepon *</label>
+                        <input type="tel" id="customerPhone" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem;">
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicleType">Jenis Kendaraan *</label>
+                        <input type="text" id="vehicleType" placeholder="Contoh: Toyota Avanza, Honda Beat" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem;">
+                    </div>
+                    <div class="form-group">
+                        <label for="plateNumber">Nomor Plat *</label>
+                        <input type="text" id="plateNumber" placeholder="Contoh: B 1234 CD" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem;">
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label for="checkInDate">Tanggal Masuk *</label>
+                            <input type="date" id="checkInDate" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem;">
+                        </div>
+                        <div class="form-group">
+                            <label for="checkInTime">Jam Masuk *</label>
+                            <input type="time" id="checkInTime" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem;">
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label for="checkOutDate">Tanggal Keluar (Opsional)</label>
+                            <input type="date" id="checkOutDate" style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem;">
+                        </div>
+                        <div class="form-group">
+                            <label for="checkOutTime">Jam Keluar (Opsional)</label>
+                            <input type="time" id="checkOutTime" style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem;">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="duration">Durasi Parkir</label>
+                        <select id="duration" style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem;">
+                            <option value="hourly">Per Jam - Rp 5,000/jam</option>
+                            <option value="daily">Harian - Rp 15,000/hari</option>
+                            <option value="weekly">Mingguan - Rp 90,000/minggu</option>
+                            <option value="monthly">Bulanan - Rp 350,000/bulan</option>
+                        </select>
+                    </div>
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Lokasi:</span>
+                            <span id="selectedLocation" style="font-weight: bold;">Parkivia Sudirman</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Jenis Parkir:</span>
+                            <span id="selectedType" style="font-weight: bold;">Mobil</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: bold; color: #1e3c72; border-top: 1px solid #ddd; padding-top: 0.5rem;">
+                            <span>Estimasi Biaya:</span>
+                            <span id="estimatedCost">Rp 15,000</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                        <button type="button" onclick="closeBookingModal()" style="flex: 1; padding: 12px; background: #6c757d; color: white; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer;">Batal</button>
+                        <button type="submit" style="flex: 2; padding: 12px; background: linear-gradient(45deg, #ff6b35, #f7931e); color: white; border: none; border-radius: 8px; font-size: 1rem; font-weight: bold; cursor: pointer;">
+                            <i class="fas fa-check"></i> Konfirmasi Reservasi
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Booking Section -->
+    <section class="booking" id="booking">
+        <div class="container">
+            <div class="section-title">
+                <h2>Reservasi Cepat</h2>
+                <p>Pilih jenis kendaraan dan lakukan reservasi dalam hitungan detik</p>
+            </div>
+            <div class="quick-book-grid">
+                <div class="quick-book-card" onclick="openBookingModal('car')">
+                    <div class="quick-book-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Parkir Mobil</h3>
+                    <p>Mulai dari Rp 5,000/jam</p>
+                    <div class="cta-button" style="margin-top: 1rem; display: inline-block;">Reservasi Sekarang</div>
+                </div>
+                <div class="quick-book-card" onclick="openBookingModal('motorcycle')">
+                    <div class="quick-book-icon">
+                        <i class="fas fa-motorcycle"></i>
+                    </div>
+                    <h3>Parkir Motor</h3>
+                    <p>Mulai dari Rp 2,000/jam</p>
+                    <div class="cta-button" style="margin-top: 1rem; display: inline-block;">Reservasi Sekarang</div>
+                </div>
+                <div class="quick-book-card" onclick="openBookingModal('vip')">
+                    <div class="quick-book-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>Parkir VIP</h3>
+                    <p>Mulai dari Rp 15,000/jam</p>
+                    <div class="cta-button" style="margin-top: 1rem; display: inline-block; background: linear-gradient(45deg, #ffd700, #ff6b35);">Reservasi VIP</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Layanan Kami</h2>
+                <p>Kami menyediakan berbagai layanan parkir berkualitas tinggi untuk memenuhi semua kebutuhan Anda</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Parkir Mobil</h3>
+                    <p>Area parkir mobil yang luas dan aman dengan sistem keamanan 24 jam dan teknologi monitoring canggih.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-motorcycle"></i>
+                    </div>
+                    <h3>Parkir Motor</h3>
+                    <p>Tempat parkir motor yang tertata rapi dengan sistem akses digital dan perlindungan cuaca optimal.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Maintenance</h3>
+                    <p>Layanan perawatan kendaraan profesional dengan teknisi berpengalaman dan peralatan modern.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Keamanan 24/7</h3>
+                    <p>Sistem keamanan terdepan dengan CCTV, security guard, dan monitoring real-time sepanjang waktu.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Aplikasi Mobile</h3>
+                    <p>Aplikasi mobile untuk reservasi, pembayaran, dan monitoring parkir dengan interface yang user-friendly.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-car-wash"></i>
+                    </div>
+                    <h3>Car Wash</h3>
+                    <p>Layanan cuci mobil premium dengan produk berkualitas tinggi dan pelayanan yang memuaskan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mengapa Memilih Kami?</h2>
+                <p>Keunggulan dan fitur terbaik yang membuat kami menjadi pilihan utama untuk kebutuhan parkir Anda</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div>
+                        <h3>Buka 24 Jam</h3>
+                        <p>Layanan parkir tersedia sepanjang hari, setiap hari dalam seminggu</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <div>
+                        <h3>Pembayaran Digital</h3>
+                        <p>Berbagai metode pembayaran modern termasuk e-wallet dan kartu</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <div>
+                        <h3>WiFi Gratis</h3>
+                        <p>Akses internet gratis untuk semua pengguna area parkir</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div>
+                        <h3>CCTV HD</h3>
+                        <p>Sistem pengawasan dengan kamera berkualitas tinggi di setiap sudut</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <h3>Lokasi Strategis</h3>
+                        <p>Terletak di lokasi yang mudah dijangkau dan dekat dengan berbagai fasilitas</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div>
+                        <h3>Customer Support</h3>
+                        <p>Tim support yang responsif dan siap membantu kapan saja</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Paket Harga</h2>
+                <p>Pilih paket yang sesuai dengan kebutuhan parkir Anda dengan harga yang kompetitif</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Harian</h3>
+                    <div class="price">Rp 15,000<span class="price-period">/hari</span></div>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>✓ Parkir 1 hari penuh</li>
+                        <li>✓ Keamanan 24 jam</li>
+                        <li>✓ WiFi gratis</li>
+                        <li>✓ Area cuci motor</li>
+                    </ul>
+                    <button class="cta-button" style="margin-top: 1rem;">Pilih Paket</button>
+                </div>
+                <div class="pricing-card featured">
+                    <div style="background: #ffd700; color: #1e3c72; padding: 0.5rem; border-radius: 20px; margin-bottom: 1rem; font-weight: bold;">TERPOPULER</div>
+                    <h3>Bulanan</h3>
+                    <div class="price">Rp 350,000<span class="price-period">/bulan</span></div>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>✓ Parkir unlimited</li>
+                        <li>✓ Keamanan premium</li>
+                        <li>✓ WiFi premium</li>
+                        <li>✓ Car wash gratis 2x</li>
+                        <li>✓ Maintenance check</li>
+                    </ul>
+                    <button class="cta-button" style="margin-top: 1rem;">Pilih Paket</button>
+                </div>
+                <div class="pricing-card">
+                    <h3>Tahunan</h3>
+                    <div class="price">Rp 3,500,000<span class="price-period">/tahun</span></div>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>✓ Semua fitur bulanan</li>
+                        <li>✓ Priority support</li>
+                        <li>✓ Maintenance unlimited</li>
+                        <li>✓ Car wash unlimited</li>
+                        <li>✓ Insurance coverage</li>
+                    </ul>
+                    <button class="cta-button" style="margin-top: 1rem;">Pilih Paket</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Hubungi Kami</h2>
+                <p>Siap melayani Anda dengan sepenuh hati. Hubungi kami untuk informasi lebih lanjut</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-form">
+                    <h3>Kirim Pesan</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Nomor Telepon</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Pesan</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="cta-button">Kirim Pesan</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Alamat</h4>
+                            <p>Jl. Sudirman No. 123, Jakarta Pusat<br>Jakarta 10220, Indonesia</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Telepon</h4>
+                            <p>+62 21 1234 5678<br>+62 812 3456 7890</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@parkivia.com<br>support@parkivia.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4>Jam Operasional</h4>
+                            <p>24 Jam Setiap Hari<br>Customer Service: 08:00 - 22:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3><i class="fas fa-car"></i> Parkivia</h3>
+                    <p>Solusi parkir modern dengan teknologi terdepan untuk memberikan pengalaman terbaik bagi setiap pengguna.</p>
+                    <div style="margin-top: 1rem;">
+                        <a href="#" style="color: #ffd700; font-size: 1.5rem; margin-right: 1rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: #ffd700; font-size: 1.5rem; margin-right: 1rem;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: #ffd700; font-size: 1.5rem; margin-right: 1rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: #ffd700; font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Layanan</h3>
+                    <ul>
+                        <li><a href="#">Parkir Mobil</a></li>
+                        <li><a href="#">Parkir Motor</a></li>
+                        <li><a href="#">Car Wash</a></li>
+                        <li><a href="#">Maintenance</a></li>
+                        <li><a href="#">Aplikasi Mobile</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Perusahaan</h3>
+                    <ul>
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">Tim Kami</a></li>
+                        <li><a href="#">Karir</a></li>
+                        <li><a href="#">Berita</a></li>
+                        <li><a href="#">Partner</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Bantuan</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Panduan</a></li>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">Hubungi Kami</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Parkivia. Seluruh hak cipta dilindungi undang-undang.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                navMenu.classList.remove('active');
+                const icon = mobileToggle.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            });
+        });
+
+        // Form submission
+        const contactForm = document.querySelector('.contact-form form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Terima kasih! Pesan Anda telah dikirim. Kami akan segera menghubungi Anda.');
+            this.reset();
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.service-card, .feature-item, .pricing-card, .contact-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            observer.observe(el);
+        });
+
+        // Pricing card selection
+        document.querySelectorAll('.pricing-card .cta-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const cardTitle = this.closest('.pricing-card').querySelector('h3').textContent;
+                alert(`Anda telah memilih paket ${cardTitle}. Tim kami akan menghubungi Anda untuk proses selanjutnya.`);
+            });
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(30, 60, 114, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Counter animation for stats (if you want to add stats section)
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            const timer = setInterval(() => {
+                start += increment;
+                element.textContent = Math.floor(start);
+                if (start >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                }
+            }, 16);
+        }
+
+        // Service card hover effects
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Smooth reveal animation for hero content
+        setTimeout(() => {
+            document.querySelectorAll('.hero-content h1, .hero-content p, .hero-content .cta-button').forEach((el, index) => {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            });
+        }, 500);
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+            document.body.style.transition = 'opacity 0.5s ease';
+        });
+
+        // Parking system functionality
+        let currentBookingType = 'car';
+        let parkingData = {
+            sudirman: { car: { available: 45, total: 100 }, motorcycle: { available: 78, total: 150 }, vip: { available: 8, total: 20 } },
+            thamrin: { car: { available: 32, total: 80 }, motorcycle: { available: 95, total: 120 }, vip: { available: 5, total: 15 } },
+            kemang: { car: { available: 67, total: 120 }, motorcycle: { available: 103, total: 180 }, vip: { available: 12, total: 25 } },
+            senayan: { car: { available: 28, total: 90 }, motorcycle: { available: 45, total: 100 }, vip: { available: 3, total: 10 } }
+        };
+
+        // Update availability display
+        function updateAvailability() {
+            const location = document.getElementById('locationSelect').value;
+            const data = parkingData[location];
+            
+            // Update car parking
+            document.getElementById('carAvailable').textContent = `${data.car.available}/${data.car.total}`;
+            document.getElementById('carProgress').style.width = `${(data.car.available / data.car.total) * 100}%`;
+            
+            // Update motorcycle parking
+            document.getElementById('motorAvailable').textContent = `${data.motorcycle.available}/${data.motorcycle.total}`;
+            document.getElementById('motorProgress').style.width = `${(data.motorcycle.available / data.motorcycle.total) * 100}%`;
+            
+            // Update VIP parking
+            document.getElementById('vipAvailable').textContent = `${data.vip.available}/${data.vip.total}`;
+            document.getElementById('vipProgress').style.width = `${(data.vip.available / data.vip.total) * 100}%`;
+        }
+
+        // Open booking modal
+        function openBookingModal(type) {
+            currentBookingType = type;
+            const modal = document.getElementById('bookingModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalIcon = document.getElementById('modalIcon');
+            const selectedType = document.getElementById('selectedType');
+            
+            // Update modal content based on type
+            switch(type) {
+                case 'car':
+                    modalTitle.textContent = 'Reservasi Parkir Mobil';
+                    modalIcon.className = 'fas fa-car';
+                    selectedType.textContent = 'Mobil';
+                    break;
+                case 'motorcycle':
+                    modalTitle.textContent = 'Reservasi Parkir Motor';
+                    modalIcon.className = 'fas fa-motorcycle';
+                    selectedType.textContent = 'Motor';
+                    break;
+                case 'vip':
+                    modalTitle.textContent = 'Reservasi Parkir VIP';
+                    modalIcon.className = 'fas fa-crown';
+                    selectedType.textContent = 'VIP';
+                    break;
+            }
+            
+            updateSelectedLocation();
+            updateEstimatedCost();
+            setDefaultDateTime();
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close booking modal
+        function closeBookingModal() {
+            const modal = document.getElementById('bookingModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            document.getElementById('bookingForm').reset();
+        }
+
+        // Update selected location in modal
+        function updateSelectedLocation() {
+            const locationSelect = document.getElementById('locationSelect');
+            const selectedLocation = document.getElementById('selectedLocation');
+            const locationText = locationSelect.options[locationSelect.selectedIndex].text;
+            selectedLocation.textContent = locationText;
+        }
+
+        // Update estimated cost
+        function updateEstimatedCost() {
+            const duration = document.getElementById('duration').value;
+            const estimatedCost = document.getElementById('estimatedCost');
+            
+            let cost = 0;
+            let multiplier = currentBookingType === 'vip' ? 3 : (currentBookingType === 'motorcycle' ? 0.4 : 1);
+            
+            switch(duration) {
+                case 'hourly':
+                    cost = 5000 * multiplier;
+                    break;
+                case 'daily':
+                    cost = 15000 * multiplier;
+                    break;
+                case 'weekly':
+                    cost = 90000 * multiplier;
+                    break;
+                case 'monthly':
+                    cost = 350000 * multiplier;
+                    break;
+            }
+            
+            estimatedCost.textContent = `Rp ${cost.toLocaleString('id-ID')}`;
+        }
+
+        // Set default date and time
+        function setDefaultDateTime() {
+            const now = new Date();
+            const today = now.toISOString().split('T')[0];
+            const currentTime = now.toTimeString().split(' ')[0].substring(0, 5);
+            
+            document.getElementById('checkInDate').value = today;
+            document.getElementById('checkInTime').value = currentTime;
+        }
+
+        // Simulate real-time updates
+        function simulateRealTimeUpdates() {
+            setInterval(() => {
+                Object.keys(parkingData).forEach(location => {
+                    Object.keys(parkingData[location]).forEach(type => {
+                        const data = parkingData[location][type];
+                        // Random small changes in availability
+                        const change = Math.floor(Math.random() * 3) - 1; // -1, 0, or 1
+                        data.available = Math.max(0, Math.min(data.total, data.available + change));
+                    });
+                });
+                updateAvailability();
+            }, 10000); // Update every 10 seconds
+        }
+
+        // Initialize parking system
+        document.addEventListener('DOMContentLoaded', function() {
+            updateAvailability();
+            simulateRealTimeUpdates();
+            
+            // Event listeners
+            document.getElementById('locationSelect').addEventListener('change', updateAvailability);
+            document.getElementById('refreshBtn').addEventListener('click', function() {
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Refreshing...';
+                setTimeout(() => {
+                    updateAvailability();
+                    this.innerHTML = '<i class="fas fa-sync-alt"></i> Refresh';
+                }, 1000);
+            });
+            
+            document.getElementById('duration').addEventListener('change', updateEstimatedCost);
+            
+            // Booking form submission
+            document.getElementById('bookingForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = {
+                    name: document.getElementById('customerName').value,
+                    phone: document.getElementById('customerPhone').value,
+                    vehicleType: document.getElementById('vehicleType').value,
+                    plateNumber: document.getElementById('plateNumber').value,
+                    checkInDate: document.getElementById('checkInDate').value,
+                    checkInTime: document.getElementById('checkInTime').value,
+                    checkOutDate: document.getElementById('checkOutDate').value,
+                    checkOutTime: document.getElementById('checkOutTime').value,
+                    duration: document.getElementById('duration').value,
+                    location: document.getElementById('locationSelect').value,
+                    type: currentBookingType
+                };
+                
+                // Generate booking ID
+                const bookingId = 'PKV' + Date.now().toString().slice(-6);
+                
+                // Show success message
+                alert(`✅ Reservasi Berhasil!
+                
+Booking ID: ${bookingId}
+Nama: ${formData.name}
+Kendaraan: ${formData.vehicleType} (${formData.plateNumber})
+Lokasi: ${document.getElementById('selectedLocation').textContent}
+Tanggal: ${formData.checkInDate}
+Jam Masuk: ${formData.checkInTime}
+Estimasi Biaya: ${document.getElementById('estimatedCost').textContent}
+
+Silakan tunjukkan Booking ID ini saat tiba di lokasi.
+Terima kasih!`);
+                
+                // Update availability (decrease by 1)
+                const location = document.getElementById('locationSelect').value;
+                if (parkingData[location][currentBookingType].available > 0) {
+                    parkingData[location][currentBookingType].available--;
+                    updateAvailability();
+                }
+                
+                closeBookingModal();
+            });
+            
+            // Close modal when clicking outside
+            document.getElementById('bookingModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeBookingModal();
+                }
+            });
+        });
